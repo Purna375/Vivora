@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Link Style CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Blog Details</title>
+  </head>
+
+  <body>
+    <!-- Header/Navbar Section Start -->
+    <header>
+      <a href="index.html" class="logo">Vi<span>vora</span></a>
+
+      <nav class="navbar">
+        <a href="index.html#Home">Home</a>
+        <a href="index.html#About">About</a>
+        <a href="index.html#RecentEvents">Events</a>
+        <a href="index.html#Contact">Contact</a>
+      </nav>
+
+      <div class="Icons">
+        <a href="#" class="fas fa-bars"></a>
+        <a href="#" class="fas fa-search"></a>
+        <a href="#" class="fas fa-user"></a>
+        <a href="#" class="fas fa-info-circle"></a>
+      </div>
+    </header>
+    <!-- Header/Navbar Section End -->
+
+    <!-- Blog Details Section Start -->
+    <section class="BlogDetails">
+      <h1 id="blog-title" class="Heading">Blog Title</h1>
+      <div class="content">
+        <img id="blog-image" src="images/default.jpg" alt="Blog Image" />
+        <p id="blog-content">
+          This is where the selected blog's details will be displayed. The
+          content will be dynamically loaded based on user interaction.
+        </p>
+      </div>
+      <button class="btn" onclick="window.location.href='index.html#Blog'">
+        Back to Blogs
+      </button>
+    </section>
+    <!-- Blog Details Section End -->
+
+    <!-- Footer Start -->
+    <footer>
+      <a href="#">&copy; Vivora 2024. All rights reserved</a>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <script>
+      // Fetch parameters from URL
+      const urlParams = new URLSearchParams(window.location.search);
+const blogId = urlParams.get("id");
+
+// Blog data
+const blogs = {
+  1: {
+    title: "The Ultimate Guide to Planning a Successful Corporate Event",
+    content: `
+      Planning a corporate event requires careful attention to detail, from selecting the venue to ensuring everything runs smoothly on the day. 
+      Whether you’re hosting a company celebration, conference, or product launch, a well-executed event can strengthen relationships, 
+      enhance brand visibility, and improve employee morale. Here's how to ensure your corporate event is a success:
+      
+      1. **Define Your Goals**: Clarify your event objectives. Do you want to educate employees, impress potential clients, or promote a new product?
+      2. **Choose the Right Venue**: Select a venue based on location, capacity, accessibility, and overall vibe.
+      3. **Budgeting & Cost Management**: Create a budget covering all aspects, from venue rental to catering and entertainment.
+      4. **Promote the Event**: Use email newsletters, social media, and other channels to build anticipation.
+      5. **Event Flow & Timing**: Structure your event to keep attendees engaged with a detailed timeline.
+      6. **On-Site Execution**: Test all tech, assign staff roles, and have a clear point of contact for any issues.
+
+      By planning meticulously and staying organized, you can host a corporate event that leaves a lasting impression on your guests.`,
+    image: "images/Blog1.jpg",
+  },
+  2: {
+    title: "How to Host a Memorable Wedding: Expert Tips and Advice",
+    content: `
+      Your wedding day is one of the most significant moments in your life. As an event planner, attention to detail and personalization are key.
+      Here are some tips for planning the wedding of your dreams:
+      
+      1. **Start with Your Vision**: Decide on the atmosphere (traditional or modern).
+      2. **Personalize Your Venue**: Reflect your style with decorations, flowers, and lighting.
+      3. **Build a Meaningful Guest List**: Invite people who truly matter to you.
+      4. **Focus on the Details**: Custom invitations, table settings, and favors add memorable touches.
+      5. **Hire the Right Vendors**: Work with experienced vendors who understand your vision.
+      6. **Don’t Forget the Experience**: Interactive elements like photo booths or live bands make it special.
+
+      By focusing on personalization and execution, you’ll create an unforgettable celebration that reflects your unique love story.`,
+    image: "images/Blog2.jpg",
+  },
+  3: {
+    title: "How to Create a Memorable Event Experience for Your Guests",
+    content: `
+      Creating a memorable event experience requires creativity and attention to detail. Here's how to make your event unforgettable:
+      
+      1. **Set the Right Tone from the Start**: Welcome guests with a warm greeting and friendly staff.
+      2. **Focus on the Atmosphere**: Use lighting, music, and decor to create an inviting environment.
+      3. **Curate an Engaging Program**: Offer activities for various interests, such as workshops or performances.
+      4. **Make Guests Feel Special**: Provide personalized gifts or VIP experiences.
+      5. **Provide Opportunities for Interaction**: Create spaces for networking or socializing.
+      6. **End on a High Note**: A memorable send-off leaves guests with a lasting positive impression.
+
+      By engaging the senses and fostering interaction, your event will stand out in attendees' memories.`,
+    image: "images/Blog3.jpg",
+  },
+  4: {
+    title: "How to Choose the Perfect Venue for Your Event",
+    content: `
+      The venue you choose plays a significant role in your event's success. Here's a guide to selecting the perfect venue:
+      
+      1. **Consider the Event Type**: Match the venue to the event (e.g., professional for conferences, romantic for weddings).
+      2. **Think About Capacity**: Ensure the venue accommodates your guest list comfortably.
+      3. **Location and Accessibility**: Choose a venue that’s centrally located and easy to access.
+      4. **Explore Venue Amenities**: Check for facilities like AV equipment, catering, and Wi-Fi.
+      5. **Personalization Options**: Select a venue that allows branding and customization.
+
+      By considering these factors, you’ll find a venue that perfectly suits your event’s needs and enhances the guest experience.`,
+    image: "images/Blog4.jpg",
+  },
+};
+
+// Load blog details dynamically
+if (blogId && blogs[blogId]) {
+  const blog = blogs[blogId];
+  document.getElementById("blog-title").innerText = blog.title;
+  document.getElementById("blog-content").innerHTML = blog.content;
+  document.getElementById("blog-image").src = blog.image;
+} else {
+  document.getElementById("blog-title").innerText = "Blog Not Found";
+  document.getElementById("blog-content").innerText =
+    "The blog you're looking for doesn't exist.";
+  document.getElementById("blog-image").src = "images/default.jpg";
+}
+
+if (blogId && blogs[blogId]) {
+  const blog = blogs[blogId];
+  document.getElementById("blog-title").innerText = blog.title;
+  document.getElementById("blog-content").innerHTML = blog.content;
+  const blogImage = document.getElementById("blog-image");
+  blogImage.src = blog.image;
+  blogImage.style.maxWidth = "600px"; // Maximum width
+  blogImage.style.width = "100%"; // Responsive width
+  blogImage.style.height = "auto"; // Maintain aspect ratio
+}
+
+    </script>
+  </body>
+</html>
